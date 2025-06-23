@@ -1,6 +1,14 @@
+
+/**
+ * Represents a list of tasks
+ */
 public class TaskList {
     private Task head;
-
+    
+    /**
+     * Adds a new task to the list
+     * @param description
+     */
     public void addTask(String description) {
         Task newTask = new Task(description);
         if (head == null) {
@@ -8,12 +16,17 @@ public class TaskList {
         } else {
             Task current = head;
             while (current.next != null) {
-                current = burrent.next;
+                current = current.next;
             }
             current.next = newTask;
         }
     }
 
+    /**
+     * Marks a task as completed
+     * @param description
+     * @return
+     */
     public boolean markTaskCompleted(String description) {
         Task current = head;
         while (current != null) {
@@ -26,6 +39,9 @@ public class TaskList {
         return false;
     }
 
+    /**
+     * Prints all tasks in the list
+     */
     public void printTasks() {
         Task current = head;
         if (current == null) {
